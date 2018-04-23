@@ -1,0 +1,14 @@
+<div [formGroup]="group">
+<fieldset>  
+  <legend class="required">
+    <span class="field-name">{{ groupName }}</span>
+    <strong class="required">(required)</strong>
+    </legend>
+
+    <div class="radio" *ngFor="let gender of genders; let i = index;" >
+    <label for="{{gender}}">
+      <input type="radio" name="{{name}}" [value]="gender"  id="{{gender}}-{{i}}" required="required" formControlName="{{fCtrlName}}" />&#160;&#160;{{gender}}</label>
+  </div>
+
+</fieldset>
+</div>

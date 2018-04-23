@@ -1,0 +1,35 @@
+<div class='form-group' [formGroup]="group" >
+
+  <label for='{{name}}'>
+    <span class='field-name'>{{label}}</span>
+    <strong *ngIf="group.get('firstname').validator == {'required':true}" class='required'>(required)</strong>
+
+
+    
+    <div *ngIf="!group.get('firstname').valid && (group.get('firstname').dirty || group.get('firstname').touched)" class="alert alert-danger">
+
+      <div *ngIf="group.get('firstname').errors.required">
+        This field is required.
+      </div>
+    <div *ngIf="group.get('firstname').errors.minlength">
+    Name must be at least {{group.get('firstname').errors.minlength}} characters long.
+  </div>
+
+
+    </div>
+
+
+
+    <!--  <strong *ngIf="required" class='required'>(required)</strong> -->
+
+    <!--      <strong id="{{name}}-error" class="error">
+     <span class="label label-danger">
+    <span class="prefix">Error&nbsp;2: </span>This field is required.</span>
+    </strong>
+ -->
+
+  </label>
+  <input class='form-control' id='{{name}}' name='{{name}}' type='text' #textInpt formControlName="firstname"  />
+
+
+</div>
